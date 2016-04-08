@@ -1,0 +1,22 @@
+---
+applications:
+- name: easytravel-backend
+  memory: 1G
+  instances: 1
+  host: easytravel-backend
+  path: build/backend.war
+  buildpack: https://github.com/cloudfoundry/java-buildpack.git
+  services:
+    - easytravel-repository
+  env:
+    JBP_CONFIG_JAVA_OPTS: '{java_opts: "-Dconfig.mongoDbInstances="}'
+    JBP_CONFIG_TOMCAT: '{context_path: "backend"}'
+- name: easytravel-frontend
+  memory: 512M
+  instances: 1
+  host: easytravel-frontend
+  path: build/frontend.war
+  buildpack: https://github.com/cloudfoundry/java-buildpack.git
+  env:
+    JBP_CONFIG_JAVA_OPTS: '{java_opts: "-Dconfig.backendHost=easytravel-backend"}'
+    JBP_CONFIG_TOMCAT: '{context_path: "frontend"}'
