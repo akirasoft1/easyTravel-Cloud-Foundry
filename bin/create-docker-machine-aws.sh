@@ -51,14 +51,17 @@ create-docker-machine() {
 
 deploy-docker-machine() {
   local MACHINE_NAME="$1"
+  local DEPLOY_HOME="~/deploy"
   local DEPLOY_DB_CMD="
     mkdir -v /data && \
     cd /data && \
-    tar xvzf ~/deploy/data/mongodb-database.tar.gz && \
+    tar xvzf ~/deploy/data/easyTravel-mongodb-db.tar.gz && \
     chown -vR ubuntu:ubuntu /data
   "
 
-  docker-machine scp -r deploy ${MACHINE_NAME}:~ && \
+  docker-machine ssh ${MACHINE_NAME} mkdir ${DEPLOY_HOME} && \
+  docker-machine scp -r app/easyTravel/deploy/data ${MACHINE_NAME}:${DEPLOY_HOME} && \
+  docker-machine scp -r deploy/config ${MACHINE_NAME}:${DEPLOY_HOME} && \
   docker-machine ssh ${MACHINE_NAME} sudo -- sh -c "'${DEPLOY_DB_CMD}'"
   return $?
 }
