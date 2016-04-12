@@ -1,3 +1,2 @@
 .DS_Store
-.docker-machine-aws
-keys
+.aws
