@@ -1,6 +1,6 @@
 #!/bin/bash
 . ./config/docker-machine-settings.sh
-. ./scripts/docker-machine-aws-common.sh
+. ./scripts/docker-machine-common.sh
 
 DOCKER_MACHINE_DEPLOY_HOME="~/deploy"
 
