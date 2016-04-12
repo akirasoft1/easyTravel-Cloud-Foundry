@@ -13,3 +13,5 @@ cf create-service-broker docker-broker containers secret http://${DOCKER_MACHINE
 cf enable-service-access mongodb-easytravel
 
 cf create-service mongodb-easytravel free mongodb-easytravel
+
+cf push
