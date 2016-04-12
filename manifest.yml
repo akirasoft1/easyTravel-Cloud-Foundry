@@ -1,7 +1,7 @@
 ---
 applications:
 - name: easytravel-backend
-  memory: 1G
+  memory: 2G
   instances: 1
   host: easytravel-backend
   path: app/easyTravel/deploy/backend/backend.war
@@ -11,7 +11,7 @@ applications:
   env:
     JBP_CONFIG_JAVA_OPTS: '{java_opts: "-Dconfig.mongoDbInstances=52.87.194.139:32769"}'
 - name: easytravel-frontend
-  memory: 1G
+  memory: 2G
   instances: 1
   host: easytravel-frontend
   path: app/easyTravel/deploy/frontend/frontend.war
