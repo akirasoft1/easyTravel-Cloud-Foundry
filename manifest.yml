@@ -9,8 +9,7 @@ applications:
   services:
     - easytravel-repository
   env:
-    JBP_CONFIG_JAVA_OPTS: '{java_opts: "-Dconfig.mongoDbInstances=54.84.25.131:32768"}'
-    JBP_CONFIG_TOMCAT: '{context_path: "backend"}'
+    JBP_CONFIG_JAVA_OPTS: '{java_opts: "-Dconfig.mongoDbInstances=52.87.194.139:32769"}'
 - name: easytravel-frontend
   memory: 1G
   instances: 1
@@ -19,4 +18,3 @@ applications:
   buildpack: https://github.com/cloudfoundry/java-buildpack.git
   env:
     JBP_CONFIG_JAVA_OPTS: '{java_opts: "-Dconfig.backendHost=easytravel-backend.apps.pcf.etmajer.com"}'
-    JBP_CONFIG_TOMCAT: '{context_path: "frontend"}'
