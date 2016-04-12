@@ -3,18 +3,21 @@
 . ./scripts/docker-machine-aws-common.sh
 
 remove-docker-machine() {
-  get-docker-machine-env ${DOCKER_MACHINE_NAME} || return $?
+  local NAME="$1"
 
-  docker-machine rm -f ${DOCKER_MACHINE_NAME}
+  docker-machine rm -f ${NAME}
   return $?
 }
 
 remove-temp-files() {
-  rm -v -rf ${DOCKER_MACHINE_AWS_FILES}  
+  local AWS_FILES="$1"
+
+  rm -v -rf ${AWS_FILES}
+  return $?  
 }
 
-if ! remove-docker-machine; then
+if ! remove-docker-machine "${DOCKER_MACHINE_NAME}"; then
   echo "Error: could not remove docker machine ${DOCKER_MACHINE_NAME}"; exit 1
 fi
 
-remove-temp-files
+remove-temp-files "${DOCKER_MACHINE_AWS_FILES}"

@@ -11,26 +11,31 @@ DOCKER_MACHINE_AWS_FILES=.aws
 
 create-docker-machine-name-file() {
   local NAME="$1"
-  local NAME_FILE=${2:-"${DOCKER_MACHINE_AWS_FILES}/${DOCKER_MACHINE_NAME_FILE}"}
+  local PATH="$2"
 
-  echo ${NAME} > ${NAME_FILE}
+  echo ${NAME} > "${PATH}"
   return $?
 }
 
 get-docker-machine-env() {
-  local MACHINE_NAME="$1"
+  local NAME="$1"
 
-  if [ -z "${MACHINE_NAME}" ]; then
-    if get-docker-machine-name; then
-      MACHINE_NAME="${DOCKER_MACHINE_NAME}"
-    fi
-  fi
+  eval "$(docker-machine env ${NAME})"
+  return $?
+}
 
-  if [ -z "${MACHINE_NAME}" ]; then
-    echo "Error: docker machine name is undefined"
-    return 1
-  fi
+get-docker-machine-ip() {
+  local NAME="$1"
 
-  eval "$(docker-machine env ${MACHINE_NAME})"
+  DOCKER_MACHINE_IP=$(docker-machine ip ${NAME})
+  return $?
+}
+
+get-docker-machine-host() {
+  local NAME="$1"
+
+  get-docker-machine-ip "${NAME}" || return $?
+
+  DOCKER_MACHINE_HOST=$(nslookup ${DOCKER_MACHINE_IP} | sed -n 's/.*arpa.*name = \(.*\)\./\1/p')
   return $?
 }
