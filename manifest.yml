@@ -7,7 +7,7 @@ applications:
   path: app/easyTravel/deploy/backend/backend.war
   buildpack: https://github.com/cloudfoundry/java-buildpack.git
   services:
-    - mongodb-easytravel
+    - easytravel-mongodb
   env:
     JBP_CONFIG_JAVA_OPTS: '{java_opts: "-Dconfig.mongoDbInstances=52.87.194.139:32769"}'
 - name: easytravel-frontend

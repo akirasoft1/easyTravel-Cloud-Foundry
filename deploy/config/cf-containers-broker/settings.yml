@@ -22,53 +22,24 @@ defaults: &defaults
 
   services:
     - id: '23eefc93-6814-4db8-bbf0-eaa6c3c5fecc'
-      name: 'mongodb-easytravel'
-      description: 'MongoDB 2.6 service for Dynatrace easyTravel'
+      name: 'easytravel-mongodb'
+      description: 'MongoDB service for Dynatrace easyTravel'
       bindable: true
       tags:
         - 'mongodb'
         - 'easyTravel'
       metadata:
-        displayName: 'MongoDB 2.6 for Dynatrace easyTravel'
-        longDescription: 'A MongoDB 2.6 service for the Dynatrace easyTravel demo application'
-        providerDisplayName: 'Pivotal Software'
-        documentationUrl: 'https://github.com/dynatrace-innovationlab/easyTravel-Cloud-Foundry'
-        supportUrl: 'https://github.com/dynatrace-innovationlab/easyTravel-Cloud-Foundry/issues'
-      dashboard_client:
-        id: 'p-mongodb26-client'
-        secret: 'p-mongodb26-secret'
-        redirect_uri: 'http://cf-containers-broker.run.pivotal.io/manage/auth/cloudfoundry/callback'
+        displayName: 'A pre-populated MongoDB service for Dynatrace easyTravel'
+        longDescription: 'A pre-populated MongoDB service for the Dynatrace easyTravel demo application'
+        providerDisplayName: 'Dynatrace LLC'
+        documentationUrl: 'https://github.com/dynatrace/Dynatrace-easyTravel-Docker'
+        supportUrl: 'https://github.com/dynatrace/Dynatrace-easyTravel-Docker/issues'
       plans:
         - id: '6d8024b1-7deb-4dc7-a72a-33ec3f7a1bfc'
           name: 'free'
           container:
             backend: 'docker'
-            image: 'frodenas/mongodb'
-            tag: '2.6'
-            command: '--smallfiles --httpinterface'
-            persistent_volumes:
-              - '/easyTravel-data'
-          credentials:
-            username:
-              key: 'MONGODB_USERNAME'
-              value: 'labuser'
-            password:
-              key: 'MONGODB_PASSWORD'
-              value: 'labpass'
-            dbname:
-              key: 'MONGODB_DBNAME'
-              value: 'easyTravel-Business'
-            uri:
-              prefix: 'mongodb'
-              port: '27017/tcp'
-          description: 'Free Trial'
-          metadata:
-            costs:
-              - amount:
-                  usd: 0.0
-                unit: 'MONTHLY'
-            bullets:
-              - 'MongoDB 2.6 for Dynatrace easyTravel running inside a Docker container'
+            image: 'dynatrace/easytravel-mongodb'
 
 assets:
   auth_password: 'secret'
