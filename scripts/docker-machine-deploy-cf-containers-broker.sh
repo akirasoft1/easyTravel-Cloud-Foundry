@@ -8,7 +8,7 @@ create-deploy-home-dir() {
   local NAME="$1"
   local DEPLOY_HOME="$2"
 
-  docker-machine ssh ${NAME} mkdir -pv ${DEPLOY_HOME}
+  docker-machine ssh "${NAME}" mkdir -pv "${DEPLOY_HOME}"
   return $?
 }
 
@@ -22,7 +22,7 @@ deploy-cf-containers-broker-config() {
   get-docker-machine-host "${NAME}" || return $?
   sed -i '' -E "s/(external_host:).*/\1 ${DOCKER_MACHINE_HOST}/" deploy/config/cf-containers-broker/settings.yml
 
-  docker-machine scp -r deploy/config ${NAME}:${DEPLOY_HOME}
+  docker-machine scp -r deploy/config "${NAME}:${DEPLOY_HOME}"
   return $?
 }
 

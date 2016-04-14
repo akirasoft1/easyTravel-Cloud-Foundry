@@ -16,17 +16,6 @@ This project builds and deploys deployment artefacts of the [Dynatrace easyTrave
 ## How to build easyTravel?
 
 ```
-./scripts/create-docker-machine-aws.sh
-./scripts/deploy-cf-containers-broker.sh
-```
-
-```
-./build-app.sh
-```
-
-```
-./scripts/login-cloud-foundry.sh
-./deploy-app.sh
 ```
 
 ## Resources
@@ -34,3 +23,11 @@ This project builds and deploys deployment artefacts of the [Dynatrace easyTrave
 - https://blog.pivotal.io/pivotal-cloud-foundry/products/docker-service-broker-for-cloud-foundry
 - https://docs.cloud.gov/ops/deploying-the-docker-broker/
 - https://docs.docker.com/machine/drivers/aws/
+
+## TODO: Required Content
+
+- security group
+- .aws configuratino in ~/.aws/config
+- clone with submodules / OR document using the release
+- what are the requirements (PCF cluster)
+- how to configure?

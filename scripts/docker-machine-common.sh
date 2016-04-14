@@ -20,7 +20,7 @@ get-docker-machine-env() {
 get-docker-machine-ip() {
   local NAME="$1"
 
-  DOCKER_MACHINE_IP=$(docker-machine ip ${NAME})
+  DOCKER_MACHINE_IP="$(docker-machine ip ${NAME})"
   return $?
 }
 
@@ -29,6 +29,6 @@ get-docker-machine-host() {
 
   get-docker-machine-ip "${NAME}" || return $?
 
-  DOCKER_MACHINE_HOST=$(nslookup ${DOCKER_MACHINE_IP} | sed -n 's/.*arpa.*name = \(.*\)\./\1/p')
+  DOCKER_MACHINE_HOST="$(nslookup ${DOCKER_MACHINE_IP} | sed -n 's/.*arpa.*name = \(.*\)\./\1/p')"
   return $?
 }

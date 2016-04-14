@@ -5,14 +5,14 @@
 remove-docker-machine() {
   local NAME="$1"
 
-  docker-machine rm -f ${NAME}
+  docker-machine rm -f "${NAME}"
   return $?
 }
 
 remove-temp-files() {
   local TMP_FILES="$1"
 
-  rm -v -rf ${TMP_FILES}
+  rm -v -rf "${TMP_FILES}"
   return $?  
 }
 
