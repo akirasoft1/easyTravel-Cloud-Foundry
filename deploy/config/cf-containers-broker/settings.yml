@@ -44,6 +44,19 @@ defaults: &defaults
           container:
             backend: 'docker'
             image: 'dynatrace/easytravel-mongodb'
+          credentials:
+            username:
+              key: 'MONGODB_USERNAME'
+              value: 'labuser'
+            password:
+              key: 'MONGODB_PASSWORD'
+              value: 'labpass'
+            dbname:
+              key: 'MONGODB_DBNAME'
+              value: 'easyTravel-Business'
+            uri:
+              prefix: 'mongodb'
+              port: '27017/tcp'
           description: 'Free Trial'
           metadata:
             costs:
