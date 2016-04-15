@@ -23,7 +23,7 @@ The following automated build and deployment process is based on these prerequis
 
 ## 0. Bootstrap
 
-`./cf-prepare.sh` sets of a Docker Machine instance and deploys a [cf-containers-broker](https://github.com/cloudfoundry-community/cf-containers-broker) and enables access to this service broker in the cluster. Configuration is stored in the following files (adapt to suit your needs):
+`./cf-prepare.sh` sets up a Docker Machine instance, deploys a [cf-containers-broker](https://github.com/cloudfoundry-community/cf-containers-broker) and enables access to this service broker in the cluster. Configuration is stored in the following files (adapt to suit your needs):
 
 - [config/cf-settings.sh](https://github.com/dynatrace-innovationlab/easyTravel-Cloud-Foundry/blob/master/config/cf-settings.sh)
 - [config/docker-machine-settings.sh](https://github.com/dynatrace-innovationlab/easyTravel-Cloud-Foundry/blob/master/config/docker-machine-settings.sh)
@@ -53,7 +53,7 @@ Configuration is stored in the following files (adapt to suit your needs):
 
 ## 2. Deploy
 
-`./deploy.sh` creates the easyTravel MongoDB database service and pushes the application defined in the `manifest.yml` file. Configuration is stored in the following files (adapt to suit your needs):
+`./deploy.sh` creates the easyTravel MongoDB database service and pushes the applications defined in the `manifest.yml` file. Configuration is stored in the following files (adapt to suit your needs):
 
 - [config/cf-settings.sh](https://github.com/dynatrace-innovationlab/easyTravel-Cloud-Foundry/blob/master/config/cf-settings.sh)
 - [config/docker-machine-settings.sh](https://github.com/dynatrace-innovationlab/easyTravel-Cloud-Foundry/blob/master/config/docker-machine-settings.sh)
