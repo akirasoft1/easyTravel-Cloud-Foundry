@@ -17,18 +17,21 @@ This project builds and deploys the [Dynatrace easyTravel](https://community.dyn
 
 The following automated build and deployment process is based on these prerequisites:
 
-- This project uses the [easyTravel-Builder](https://github.com/dynatrace-innovationlab/easyTravel-Builder) project. The fully automated build process runs inside a Docker container, which relieves you from the need to set up a build environment first. If you don't have done so yet, go install [Docker](https://docs.docker.com/linux/step_one/) or the [Docker Toolbox](https://www.docker.com/products/docker-toolbox) now.
-- The process requires access to a [Cloud Foundry](https://en.wikipedia.org/wiki/Cloud_Foundry) environment. Preparing and cleaning the cluster via `cf-prepare.sh` and `cf-clean.sh`, respectively, creates and deletes *organizations*, *spaces*, *service brokers*, *services* and *applications* (which means you'll have to be an *admin*). You'll also need to install the [cf Command Line Interface](http://docs.cloudfoundry.org/cf-cli/install-go-cli.html).
-- The process requires access to an [Amazon EC2](https://aws.amazon.com/ec2/) account to spin up a [Docker Machine](https://docs.docker.com/machine/overview/) instance to run a [cf-containers-broker](https://github.com/cloudfoundry-community/cf-containers-broker) that will host easyTravel's MongoDB database. Information on how to configure your AWS credentials for Docker Machine can be found [here](https://docs.docker.com/machine/drivers/aws/#configuring-credentials).
+1) *Bootstrapping* easyTravel's runtime environment requires access to an [Amazon EC2](https://aws.amazon.com/ec2/) account to run a [cf-containers-broker](https://github.com/cloudfoundry-community/cf-containers-broker) image on a [Docker Machine](https://docs.docker.com/machine/overview/) to hosts easyTravel's MongoDB database. In order to access Amazon EC2, you'll have to provide your personal AWS credentials in `~/.aws/credentials`, as described in Docker Machine's documentation on [Configuring Credentials for AWS](https://docs.docker.com/machine/drivers/aws/#configuring-credentials). Configuration is stored in [config/docker-machine-settings.sh](https://github.com/dynatrace-innovationlab/easyTravel-Cloud-Foundry/blob/master/config/docker-machine-settings.sh). Adapt to suit your needs.
 
-## 0. Bootstrap
+2) The *build process* depends on the [easyTravel-Builder](https://github.com/dynatrace-innovationlab/easyTravel-Builder) project as a *git submodule*. To obtain the entire codebase, either clone the project recursively via `git clone --recursive` or download a source distribution release from [here](https://github.com/dynatrace-innovationlab/easyTravel-Builder/releases). Configuration for building easyTravel is stored in [config/app-settings.sh](https://github.com/dynatrace-innovationlab/easyTravel-Cloud-Foundry/blob/master/config/app-settings.sh). Adapt to suit your needs.
 
-`./cf-prepare.sh` sets up a Docker Machine instance, deploys a [cf-containers-broker](https://github.com/cloudfoundry-community/cf-containers-broker) and enables access to this service broker in the cluster. Configuration is stored in the following files (adapt to suit your needs):
+Building runs entirely in Docker, which relieves you from setting up a build environment first. If you don't have done so yet, go install [Docker](https://docs.docker.com/linux/step_one/) or the [Docker Toolbox](https://www.docker.com/products/docker-toolbox) now.
 
-- [config/cf-settings.sh](https://github.com/dynatrace-innovationlab/easyTravel-Cloud-Foundry/blob/master/config/cf-settings.sh)
-- [config/docker-machine-settings.sh](https://github.com/dynatrace-innovationlab/easyTravel-Cloud-Foundry/blob/master/config/docker-machine-settings.sh)
+3) The *bootstrap and deployment processes* require access to a [Cloud Foundry](https://en.wikipedia.org/wiki/Cloud_Foundry) environment. Bootstrapping deletes and creates *organizations*, *spaces*, *service brokers*, *services* and *applications*, which means you will have to be an *admin*. The [cf Command Line Interface](http://docs.cloudfoundry.org/cf-cli/install-go-cli.html) has to be installed. Configuration for bootstrapping and deploying easyTravel on Cloud Foundry is stored in [config/cf-settings.sh](https://github.com/dynatrace-innovationlab/easyTravel-Cloud-Foundry/blob/master/config/cf-settings.sh). Adapt to suit your needs.
 
-## 1. Build
+## Build and Deploy easyTravel on Cloud Foundry
+
+### 0. Bootstrap Cloud Foundry
+
+`./cf-prepare.sh` sets up a Docker Machine instance in the Amazon EC2, runs a [cf-containers-broker](https://github.com/cloudfoundry-community/cf-containers-broker) on top and enables access to this service broker in Cloud Foundry. Undo via `./cf-clean.sh`.
+
+### 1. Build easyTravel
 
 `./build.sh` creates the required deployment artefacts in `./app/easyTravel/deploy`.
 
@@ -47,22 +50,15 @@ The following automated build and deployment process is based on these prerequis
                 └── loadgen.tar.gz
 ```
 
-Configuration is stored in the following files (adapt to suit your needs):
+### 2. Deploy easyTravel
 
-- [config/cf-settings.sh](https://github.com/dynatrace-innovationlab/easyTravel-Cloud-Foundry/blob/master/config/cf-settings.sh)
-
-## 2. Deploy
-
-`./deploy.sh` creates the easyTravel MongoDB database service and pushes the applications defined in the `manifest.yml` file. Configuration is stored in the following files (adapt to suit your needs):
-
-- [config/cf-settings.sh](https://github.com/dynatrace-innovationlab/easyTravel-Cloud-Foundry/blob/master/config/cf-settings.sh)
-- [config/docker-machine-settings.sh](https://github.com/dynatrace-innovationlab/easyTravel-Cloud-Foundry/blob/master/config/docker-machine-settings.sh)
+`./deploy.sh` creates the easyTravel MongoDB database service and pushes the applications defined in the `manifest.yml` file to Cloud Foundry. Undo via `./clean.sh`.
 
 ## Additional Resources
 
-- [Docker Service Broker for Cloud Foundry](https://blog.pivotal.io/pivotal-cloud-foundry/products/docker-service-broker-for-cloud-foundry)
-- [Deploying the Docker Broker](https://docs.cloud.gov/ops/deploying-the-docker-broker/)
-- [Docker Machine on AWS](https://docs.docker.com/machine/drivers/aws/)
+- [Docker Service Broker for Cloud Foundry](https://blog.pivotal.io/pivotal-cloud-foundry/products/docker-service-broker-for-cloud-foundry) (via [blog.pivotal.io](https://blog.pivotal.io/pivotal-cloud-foundry))
+- [Deploying the Docker Broker](https://docs.cloud.gov/ops/deploying-the-docker-broker/) (via [docs.cloud.gov](https://docs.cloud.gov))
+- [Docker Machine on AWS](https://docs.docker.com/machine/drivers/aws/) (via [docs.docker.com](https://docs.docker.com))
 
 ## License
 
