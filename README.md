@@ -37,16 +37,15 @@ Building runs entirely in Docker, which relieves you from setting up a build env
 
 ```
 .
-├── app
-    └── easyTravel/deploy
-        ├── backend
-        │   └── backend.war
-        ├── data
-        │   └── easyTravel-mongodb-db.tar.gz
-        ├── frontend
-        │   └── frontend.war
-        └── loadgen
-            └── loadgen.tar.gz
+├── app/easyTravel/deploy
+    ├── backend
+    │   └── backend.war
+    ├── data
+    │   └── easyTravel-mongodb-db.tar.gz
+    ├── frontend
+    │   └── frontend.war
+    └── loadgen
+        └── loadgen.tar.gz
 ```
 
 ### 2. Deploy
