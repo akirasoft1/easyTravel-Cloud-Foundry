@@ -47,10 +47,10 @@ defaults: &defaults
           credentials:
             username:
               key: 'MONGODB_USERNAME'
-              value: ''
+              value: 'labuser'
             password:
               key: 'MONGODB_PASSWORD'
-              value: ''
+              value: 'labpass'
             dbname:
               key: 'MONGODB_DBNAME'
               value: 'easyTravel-Business'
