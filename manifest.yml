@@ -15,4 +15,4 @@ applications:
   path: app/easyTravel/deploy/frontend/frontend.war
   buildpack: https://github.com/cloudfoundry/java-buildpack.git
   env:
-    JBP_CONFIG_JAVA_OPTS: '{ java_opts: "-Dconfig.webServiceBaseDir=http://easytravel-backend.apps.pcf.etmajer.com/services/" }'
+    ET_BACKEND_URL: 'http://easytravel-backend.apps.pcf.etmajer.com'
