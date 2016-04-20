@@ -6,12 +6,12 @@ This project builds and deploys the [Dynatrace easyTravel](https://community.dyn
 
 ## Application Components
 
-| Component   | Deployment Artefact
-|:------------|--------------------
-| persistence  | A pre-populated travel database (MongoDB) as `easyTravel-mongodb-db.tar.gz`.
-| backend     | The easyTravel Business Backend (Java) as `backend.war`
-| frontend    | The easyTravel Customer Frontend (Java) as `frontend.war`.
-| loadgen     | A synthetic UEM load generator (Java) as `uemload.jar` and dependencies in `loadgen.tar.gz`.
+| Component | Component
+|:----------|----------
+| mongodb   | A pre-populated travel database (MongoDB).
+| backend   | The easyTravel Business Backend (Java).
+| frontend  | The easyTravel Customer Frontend (Java).
+| loadgen   | A synthetic UEM load generator (Java).
 
 ## Prerequisites
 
@@ -31,7 +31,7 @@ Building runs entirely in Docker, which relieves you from setting up a build env
 
 `./cf-prepare.sh` sets up a Docker Machine instance in the Amazon EC2, runs a [cf-containers-broker](https://github.com/cloudfoundry-community/cf-containers-broker) on top and enables access to this service broker in Cloud Foundry. Undo via `./cf-clean.sh`.
 
-### 1. Build easyTravel
+### 1. Build
 
 `./build.sh` creates the required deployment artefacts in `./app/easyTravel/deploy`.
 
@@ -50,7 +50,7 @@ Building runs entirely in Docker, which relieves you from setting up a build env
                 └── loadgen.tar.gz
 ```
 
-### 2. Deploy easyTravel
+### 2. Deploy
 
 `./deploy.sh` creates the easyTravel MongoDB database service and pushes the applications defined in the `manifest.yml` file to Cloud Foundry. Undo via `./clean.sh`.
 
