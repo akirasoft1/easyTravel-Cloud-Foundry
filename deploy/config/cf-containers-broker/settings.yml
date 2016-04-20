@@ -9,8 +9,8 @@ defaults: &defaults
   session_expiry: 86400
 
   cc_api_uri: 'http://api.vcap.me'
-  external_ip: 54.175.17.34
-  external_host: ec2-54-175-17-34.compute-1.amazonaws.com
+  external_ip: 127.0.0.1
+  external_host: 'containers.vcap.me'
 
   ssl_enabled: false
   skip_ssl_validation: true
