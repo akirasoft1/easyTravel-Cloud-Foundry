@@ -4,7 +4,7 @@
 
 ## Prerequisites
 
-The *deployment processes* requires access to a [Dynatrace Application Monitoring]() server instance, whose configuration is stored in [config/dtAppMon-settings.sh](https://github.com/dynatrace-innovationlab/easyTravel-Cloud-Foundry/blob/master/config/dtAppMon-settings.sh). Adapt to suit your needs.
+The *deployment processes* requires access to a [Dynatrace Application Monitoring]() server instance, whose configuration is stored in [config/dtAppMon-settings.sh](https://github.com/dynatrace-innovationlab/easyTravel-Cloud-Foundry/blob/master/config/dtAppMon-settings.sh). Adapt to suit your needs. Please refer to [README.md](https://github.com/dynatrace-innovationlab/easyTravel-Cloud-Foundry/blob/master/README.md) for additional steps.
 
 ## Deploy easyTravel with Dynatrace AppMon
 
