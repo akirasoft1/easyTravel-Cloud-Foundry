@@ -1,2 +1,2 @@
 #!/bin/bash
-export DT_APPMON_SERVER_URL=
+export DT_APPMON_SERVER_IP=
