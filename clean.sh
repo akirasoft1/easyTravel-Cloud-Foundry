@@ -1,9 +1,9 @@
 #!/bin/bash
 . ./config/cf-settings.sh
 
-./scripts/cf-login.sh && \
-cf delete-org "${CF_ORG}" -f && \
-cf create-org "${CF_ORG}" && \
-cf create-space "${CF_SPACE}" -o "${CF_ORG}" && \
-./scripts/cf-login.sh
+./scripts/cf-target.sh && \
+cf delete easytravel-backend -f && \
+cf delete easytravel-frontend -f && \
+cf delete-service "${CF_ET_MONGODB_SERVICE}" -f &&
+cf delete-service "${CF_DT_APPMON_SERVICE}" -f
 exit $?

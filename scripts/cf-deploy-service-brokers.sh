@@ -3,7 +3,7 @@
 . ./config/docker-machine-settings.sh
 . ./scripts/docker-machine-common.sh
 
-./scripts/cf-login.sh
+./scripts/cf-target.sh
 
 create-docker-service-broker() {
   local SERVICE_BROKER="$1"
