@@ -3,7 +3,7 @@ export CF_API_URL=
 
 export CF_USERNAME=admin
 export CF_PASSWORD=
-export CF_ORG=easytravel-appmon
+export CF_ORG=easytravel
 export CF_SPACE=dev
 
 export CF_DOCKER_SERVICE_BROKER_NAME=docker-broker
