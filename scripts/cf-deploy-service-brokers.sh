@@ -19,7 +19,7 @@ enable-service-access() {
   local SERVICE="$1"
   local ORG="$2"
 
-  cf enable-service-access "${SERVICE}" -o "${ORG}"
+  cf enable-service-access "${SERVICE}"
   return $?
 }
 
