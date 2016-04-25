@@ -1,7 +1,7 @@
 ---
 applications:
 - name: easytravel-backend
-  memory: 2G
+  memory: 1G
   instances: 1
   host: easytravel-backend
   path: app/easyTravel/deploy/backend/backend.war
@@ -9,7 +9,7 @@ applications:
   services:
     - easytravel-mongodb
 - name: easytravel-frontend
-  memory: 2G
+  memory: 1G
   instances: 1
   host: easytravel-frontend
   path: app/easyTravel/deploy/frontend/frontend.war
