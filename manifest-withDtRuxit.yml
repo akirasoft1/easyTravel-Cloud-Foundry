@@ -1,0 +1,21 @@
+---
+applications:
+- name: easytravel-backend-ruxit
+  memory: 1G
+  instances: 1
+  host: easytravel-backend-ruxit
+  path: app/easyTravel/deploy/backend/backend.war
+  buildpack: https://github.com/cloudfoundry/java-buildpack.git
+  services:
+    - easytravel-mongodb
+    - ruxit
+- name: easytravel-frontend-ruxit
+  memory: 1G
+  instances: 1
+  host: easytravel-frontend-ruxit
+  path: app/easyTravel/deploy/frontend/frontend.war
+  buildpack: https://github.com/cloudfoundry/java-buildpack.git
+  services:
+    - ruxit
+  env:
+    ET_BACKEND_URL: 'http://easytravel-backend-ruxit.apps.pcf.etmajer.com'

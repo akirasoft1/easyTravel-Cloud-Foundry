@@ -12,3 +12,4 @@ export CF_DOCKER_SERVICE_PASSWORD=secret
 
 export CF_ET_MONGODB_SERVICE=easytravel-mongodb
 export CF_DT_APPMON_SERVICE=dynatrace-appmon
+export CF_DT_RUXIT_SERVICE=ruxit
