@@ -1,6 +1,6 @@
 ---
 applications:
-- name: easytravel-backend-ruxit
+- name: easytravel-backend
   memory: 1G
   instances: 1
   host: easytravel-backend-ruxit
@@ -9,7 +9,7 @@ applications:
   services:
     - easytravel-mongodb
     - ruxit
-- name: easytravel-frontend-ruxit
+- name: easytravel-frontend
   memory: 1G
   instances: 1
   host: easytravel-frontend-ruxit
