@@ -10,13 +10,19 @@ The *deployment processes* requires access to a [Dynatrace Ruxit](http://www.dyn
 
 `./deploy-withDtRuxit.sh` creates the easyTravel MongoDB database service, registers a Dynatrace Ruxit environment as a user-provided service and pushes the applications defined in the `manifest-withDtRuxit.yml` file to Cloud Foundry. Undo via `./clean.sh`.
 
-1) Once the application has started, you should see the `easytravel-frontend` and `easytravel-backend` in your Ruxit environment.
+1) Open up the easyTravel Customer Frontend in a browser and make a booking to a destination of your choice:
 
-2) Open up the easyTravel Customer Frontend in a browser and make a booking to a destination of your choice:
+![easyTravel Journey Booking](https://github.com/dynatrace-innovationlab/easyTravel-Cloud-Foundry/blob/images/easytravel-booking.png)
 
-![easyTravel Logo](https://github.com/dynatrace-innovationlab/easyTravel-Cloud-Foundry/blob/images/easytravel-booking.png)
+2) See Dynatrace Ruxiit monitor the application:
 
-3) See Dynatrace Ruxiit monitor the application
+![easyTravel Business Backend Process](https://github.com/dynatrace-innovationlab/easyTravel-Cloud-Foundry/blob/images/ruxit-easytravel-backend-process.png)
+
+![easyTravel Services](https://github.com/dynatrace-innovationlab/easyTravel-Cloud-Foundry/blob/images/ruxit-easytravel-services.png)
+
+![easyTravel Booking Service](https://github.com/dynatrace-innovationlab/easyTravel-Cloud-Foundry/blob/images/ruxit-easytravel-booking-service.png)
+
+![easyTravel Customer Frontend: Response Time Analysis](https://github.com/dynatrace-innovationlab/easyTravel-Cloud-Foundry/blob/images/ruxit-easytravel-frontend-rta.png)
 
 ## License
 

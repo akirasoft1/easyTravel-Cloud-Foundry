@@ -12,15 +12,15 @@ The *deployment processes* requires access to a [Dynatrace Application Monitorin
 
 1) Once the application has started, you should see the `easytravel-frontend` and `easytravel-backend` agents connected:
 
-![easyTravel Logo](https://github.com/dynatrace-innovationlab/easyTravel-Cloud-Foundry/blob/images/dynatrace-agents-overview.png)
+![Agents Overview](https://github.com/dynatrace-innovationlab/easyTravel-Cloud-Foundry/blob/images/appmon-agents-overview.png)
 
 2) Open up the easyTravel Customer Frontend in a browser and make a booking to a destination of your choice:
 
-![easyTravel Logo](https://github.com/dynatrace-innovationlab/easyTravel-Cloud-Foundry/blob/images/easytravel-booking.png)
+![easyTravel Journey Booking](https://github.com/dynatrace-innovationlab/easyTravel-Cloud-Foundry/blob/images/easytravel-booking.png)
 
 3) See Dynatrace AppMon monitor the application:
 
-![easyTravel Logo](https://github.com/dynatrace-innovationlab/easyTravel-Cloud-Foundry/blob/images/easytravel-transaction-flow.png)
+![easyTravel Transaction Flow](https://github.com/dynatrace-innovationlab/easyTravel-Cloud-Foundry/blob/images/appmon-easytravel-tf.png)
 
 ## License
 
