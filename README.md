@@ -50,7 +50,9 @@ Building runs entirely in Docker, which relieves you from setting up a build env
 
 ### 2. Deploy
 
-`./deploy.sh` creates the easyTravel MongoDB database service and pushes the applications defined in the `manifest.yml` file to Cloud Foundry. Undo via `./clean.sh`. Please refer to [README-withDtAppMon.md](https://github.com/dynatrace-innovationlab/easyTravel-Cloud-Foundry/blob/master/README-withDtAppMon.md) on how to monitor easyTravel in Cloud Foundry with [Dynatrace AppMon](http://www.dynatrace.com/en/application-monitoring/).
+`./deploy.sh` creates the easyTravel MongoDB database service and pushes the applications defined in the `manifest.yml` file to Cloud Foundry. Undo via `./clean.sh`.
+
+Please refer to [README-withDtAppMon.md](https://github.com/dynatrace-innovationlab/easyTravel-Cloud-Foundry/blob/master/README-withDtAppMon.md) and [README-withDtRuxit.md](https://github.com/dynatrace-innovationlab/easyTravel-Cloud-Foundry/blob/master/README-withDtRuxit.md) on how to monitor easyTravel in Cloud Foundry with [Dynatrace AppMon](http://www.dynatrace.com/en/application-monitoring/) or [Dynatrace Ruxit](http://www.dynatrace.com/en/ruxit/), respectively.
 
 ## Additional Resources
 
