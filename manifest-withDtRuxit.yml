@@ -1,7 +1,7 @@
 ---
 applications:
 - name: easytravel-backend
-  memory: 1G
+  memory: 786M
   instances: 1
   host: easytravel-backend-ruxit
   path: app/easyTravel/deploy/backend/backend.war
@@ -10,7 +10,7 @@ applications:
     - easytravel-mongodb
     - ruxit
 - name: easytravel-frontend
-  memory: 1G
+  memory: 768M
   instances: 1
   host: easytravel-frontend-ruxit
   path: app/easyTravel/deploy/frontend/frontend.war
