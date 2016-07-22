@@ -6,8 +6,8 @@ This project builds and deploys the [Dynatrace easyTravel](https://community.dyn
 
 ## Application Components
 
-| Component | Component
-|:----------|:---------
+| Component | Description
+|:----------|:-----------
 | mongodb   | A pre-populated travel database (MongoDB).
 | backend   | The easyTravel Business Backend (Java).
 | frontend  | The easyTravel Customer Frontend (Java).
