@@ -1,20 +1,20 @@
-# easyTravel-Cloud-Foundry with Dynatrace Ruxit
+# easyTravel-Cloud-Foundry with Dynatrace
 
 ![easyTravel Logo](https://github.com/dynatrace-innovationlab/easyTravel-Builder/blob/images/easyTravel-logo.png)
 
 ## Prerequisites
 
-The *deployment processes* requires access to a [Dynatrace Ruxit](http://www.dynatrace.com/en/ruxit/) environment, whose configuration is stored in [config/dtRuxit-settings.sh](https://github.com/dynatrace-innovationlab/easyTravel-Cloud-Foundry/blob/master/config/dtRuxit-settings.sh). Adapt to suit your needs. Please refer to [README.md](https://github.com/dynatrace-innovationlab/easyTravel-Cloud-Foundry/blob/master/README.md) for additional steps.
+The *deployment processes* requires access to a [Dynatrace](http://www.dynatrace.com/en/ruxit/) environment, whose configuration is stored in [config/dynatrace-settings.sh](https://github.com/dynatrace-innovationlab/easyTravel-Cloud-Foundry/blob/master/config/dynatrace-settings.sh). Adapt to suit your needs. Please refer to [README.md](https://github.com/dynatrace-innovationlab/easyTravel-Cloud-Foundry/blob/master/README.md) for additional steps.
 
-## Deploy easyTravel with Dynatrace Ruxit
+## Deploy easyTravel with Dynatrace
 
-`./deploy-withDtRuxit.sh` creates the easyTravel MongoDB database service, registers a Dynatrace Ruxit environment as a user-provided service and pushes the applications defined in the `manifest-withDtRuxit.yml` file to Cloud Foundry. Undo via `./clean.sh`.
+`./deploy-withDynatrace.sh` creates the easyTravel MongoDB database service, registers a Dynatrace environment as a user-provided service and pushes the applications defined in the `manifest-withDynatrace.yml` file to Cloud Foundry. Undo via `./clean.sh`.
 
 1) Open up the easyTravel Customer Frontend in a browser and make a booking to a destination of your choice:
 
 ![easyTravel Journey Booking](https://github.com/dynatrace-innovationlab/easyTravel-Cloud-Foundry/blob/images/easytravel-booking.png)
 
-2) See Dynatrace Ruxiit monitor the application:
+2) See Dynatrace monitor the application:
 
 ![easyTravel Business Backend Process](https://github.com/dynatrace-innovationlab/easyTravel-Cloud-Foundry/blob/images/ruxit-easytravel-backend-process.png)
 

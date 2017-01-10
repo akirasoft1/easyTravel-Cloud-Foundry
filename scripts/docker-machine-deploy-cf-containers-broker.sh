@@ -36,7 +36,7 @@ run-cf-containers-broker() {
     --publish 80:80 \
     --volume /var/run:/var/run \
     --volume /home/ubuntu/deploy/config/cf-containers-broker:/config \
-    frodenas/cf-containers-broker
+    amayr/cf-containers-broker
   return $?
 }
 

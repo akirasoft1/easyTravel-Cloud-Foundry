@@ -37,12 +37,14 @@ create-docker-machine() {
     echo "Error: could not create docker machine name file in ${TMP_FILES}/${AWS_NAME_FILE}"; exit 1
   fi
 
+#docker-machine 0.8.2 bugfix: + --amazonec2-ami ami-40d28157 
   docker-machine create --driver amazonec2 \
     --amazonec2-tags "Name,${NAME},Email,${AWS_NODE_OWNER},Category,${AWS_NODE_CATEGORY}" \
     --amazonec2-region "${AWS_REGION}" \
     --amazonec2-instance-type "${AWS_INSTANCE_TYPE}" \
     --amazonec2-security-group "${AWS_SG_NAME}" \
     --amazonec2-ssh-keypath "${TMP_FILES}/keys/${NAME}" \
+    --amazonec2-ami ami-40d28157 \
     "${NAME}"
   return $?
 }

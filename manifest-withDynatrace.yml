@@ -3,19 +3,19 @@ applications:
 - name: easytravel-backend
   memory: 786M
   instances: 1
-  host: easytravel-backend-ruxit
+  host: easytravel-backend-dynatrace
   path: app/easyTravel/deploy/backend/backend.war
   buildpack: https://github.com/cloudfoundry/java-buildpack.git
   services:
     - easytravel-mongodb
-    - ruxit
+    - dynatrace
 - name: easytravel-frontend
   memory: 768M
   instances: 1
-  host: easytravel-frontend-ruxit
+  host: easytravel-frontend-dynatrace
   path: app/easyTravel/deploy/frontend/frontend.war
   buildpack: https://github.com/cloudfoundry/java-buildpack.git
   services:
-    - ruxit
+    - dynatrace
   env:
-    ET_BACKEND_URL: 'http://easytravel-backend-ruxit.apps.pcf.etmajer.com'
+    ET_BACKEND_URL: 'http://easytravel-backend-dynatrace.apps.pcf.etmajer.com'
