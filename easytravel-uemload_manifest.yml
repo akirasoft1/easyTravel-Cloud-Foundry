@@ -1,0 +1,16 @@
+applications:
+- name: easytravel-uemload
+  command: curl -s https://raw.githubusercontent.com/danhigham/cf-console/master/install.sh
+    > /tmp/install.sh && bash /tmp/install.sh && sleep 3600
+  disk_quota: 1G
+  docker:
+    image: dynatrace/easytravel-loadgen
+  env:
+    ET_FRONTEND_URL: https://easytravel-frontend.apps.pcfeu.dev.dynatracelabs.com
+    ET_PROBLEMS: BadCacheSynchronization,ExceptionSpamming,JourneySearchError404,MobileErrors,TravellersOptionBox
+  health-check-type: process
+  instances: 1
+  memory: 512M
+  no-route: true
+  stack: cflinuxfs2
+  timeout: 120

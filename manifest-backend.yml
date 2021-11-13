@@ -1,0 +1,12 @@
+---
+applications:
+- name: easytravel-backend
+  memory: 768M
+  instances: 1
+  host: easytravel-backend-mike
+  path: app/easyTravel/deploy/backend/backend.war
+  buildpack: https://github.com/cloudfoundry/java-buildpack.git
+  services:
+    - easytravel-mysql
+  env:
+

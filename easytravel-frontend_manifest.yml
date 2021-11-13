@@ -1,0 +1,11 @@
+applications:
+- name: easytravel-frontend
+  disk_quota: 1G
+  env:
+    ET_BACKEND_URL: http://easytravel-backend.apps.pcfeu.dev.dynatracelabs.com
+  instances: 2
+  memory: 1G
+  routes:
+  - route: easytravel-frontend.apps.pcfeu.dev.dynatracelabs.com
+  stack: cflinuxfs2
+  timeout: 120
